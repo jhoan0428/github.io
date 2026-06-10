@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CATT Store – Your Trusted TikTok Affiliate Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --rose:    #E8496A;
+    --gold:    #D4A847;
+    --blush:   #F7D6DC;
+    --cream:   #FFF8F2;
+    --warm:    #FFF0E6;
+    --peach:   #FAC8A0;
+    --deep:    #3A1A0E;
+    --mocha:   #7B3F2A;
+    --text:    #2C1A12;
+    --muted:   #9B7A6A;
+    --white:   #FFFFFF;
+    --shadow:  0 8px 32px rgba(58,26,14,.13);
+    --radius:  18px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: linear-gradient(90deg, #3A1A0E 0%, #7B3F2A 50%, #E8496A 100%);
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 16px rgba(58,26,14,.35);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900;
+    color: var(--gold);
+    letter-spacing: .04em;
+    text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+  .logo span { color: var(--white); font-size: 1rem; font-weight: 600; font-family: 'Nunito', sans-serif; letter-spacing: .1em; display: block; line-height: 1; }
+  nav { display: flex; gap: 8px; }
+  nav a {
+    color: rgba(255,255,255,.85); text-decoration: none; font-size: .85rem;
+    font-weight: 700; padding: 6px 12px; border-radius: 20px;
+    transition: background .2s, color .2s;
+  }
+  nav a:hover { background: rgba(255,255,255,.15); color: #fff; }
+  .tiktok-btn {
+    display: flex; align-items: center; gap: 6px;
+    background: linear-gradient(135deg, #ff0050, #010101);
+    color: #fff; border: none; border-radius: 24px;
+    padding: 8px 16px; font-size: .82rem; font-weight: 800;
+    cursor: pointer; text-decoration: none;
+    box-shadow: 0 2px 12px rgba(255,0,80,.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .tiktok-btn:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(255,0,80,.5); }
+  .tiktok-btn svg { width:16px; height:16px; fill:white; flex-shrink:0; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #3A1A0E 0%, #7B3F2A 40%, #E8496A 75%, #F7D6DC 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-badge {
+    background: var(--gold); color: var(--deep);
+    font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    padding: 6px 18px; border-radius: 20px; margin-bottom: 20px;
+    display: inline-block; animation: fadeDown .6s ease;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 900; line-height: 1.05; color: var(--white);
+    text-shadow: 0 4px 24px rgba(0,0,0,.3);
+    animation: fadeUp .7s ease;
+    max-width: 800px;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p {
+    margin: 22px 0 36px;
+    font-size: 1.15rem; color: rgba(255,255,255,.88);
+    max-width: 560px; line-height: 1.7;
+    animation: fadeUp .8s ease;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeUp .9s ease; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #c4902e);
+    color: var(--deep); font-weight: 800; font-size: 1rem;
+    padding: 14px 32px; border-radius: 32px; border: none; cursor: pointer;
+    text-decoration: none; box-shadow: 0 4px 20px rgba(212,168,71,.5);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,168,71,.6); }
+  .btn-secondary {
+    background: rgba(255,255,255,.12); backdrop-filter: blur(8px);
+    color: #fff; font-weight: 700; font-size: 1rem;
+    padding: 14px 32px; border-radius: 32px; border: 2px solid rgba(255,255,255,.35);
+    cursor: pointer; text-decoration: none;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.6); }
+
+  /* floating sparkles */
+  .sparkle { position: absolute; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; opacity: .6; animation: float 4s ease-in-out infinite; }
+  .sparkle:nth-child(2) { width:5px; height:5px; left:10%; top:20%; animation-delay: .5s; animation-duration: 5s; }
+  .sparkle:nth-child(3) { width:10px; height:10px; left:80%; top:30%; animation-delay: 1s; animation-duration: 6s; }
+  .sparkle:nth-child(4) { width:6px; height:6px; left:60%; top:70%; animation-delay: 1.5s; animation-duration: 4.5s; }
+  .sparkle:nth-child(5) { width:4px; height:4px; left:30%; top:80%; animation-delay: 2s; animation-duration: 5.5s; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--deep); color: var(--white);
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    padding: 18px 24px; font-size: .88rem; font-weight: 700; letter-spacing: .04em;
+  }
+  .trust-bar span { display: flex; align-items: center; gap: 7px; }
+  .trust-bar span::before { content: '✦'; color: var(--gold); }
+
+  /* ── SECTION TITLE ── */
+  .section { padding: 72px 24px; max-width: 1200px; margin: 0 auto; }
+  .sec-header { text-align: center; margin-bottom: 48px; }
+  .sec-eyebrow {
+    font-size: .78rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 10px;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 900; color: var(--deep);
+    line-height: 1.15;
+  }
+  .sec-title em { color: var(--rose); font-style: normal; }
+  .sec-sub { color: var(--muted); font-size: 1rem; margin-top: 10px; }
+
+  /* ── CATEGORIES ── */
+  .cats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+  .cat-card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 24px 16px; text-align: center;
+    box-shadow: var(--shadow); cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    border: 2px solid transparent;
+  }
+  .cat-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(232,73,106,.18); border-color: var(--rose); }
+  .cat-icon { font-size: 2.4rem; margin-bottom: 10px; }
+  .cat-card h3 { font-size: .92rem; font-weight: 800; color: var(--deep); }
+  .cat-card p { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+
+  /* ── PRODUCTS GRID ── */
+  .products-wrap { background: var(--warm); padding: 72px 0; }
+  .products-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; justify-content: center;
+  }
+  .filter-btn {
+    padding: 8px 20px; border-radius: 24px; border: 2px solid var(--peach);
+    background: var(--white); color: var(--mocha); font-weight: 700; font-size: .85rem;
+    cursor: pointer; transition: all .2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: linear-gradient(135deg, var(--rose), var(--mocha));
+    color: var(--white); border-color: transparent;
+  }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+  .product-card {
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(232,73,106,.2); }
+  .product-card.hidden { display: none; }
+  .prod-img {
+    height: 220px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem;
+  }
+  .prod-img-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem; opacity: .12; transform: scale(1.2);
+    filter: blur(2px);
+    user-select: none;
+  }
+  .prod-img-icon { position: relative; z-index: 1; font-size: 4.5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.15)); }
+
+  /* gradient backgrounds per category */
+  .cat-beauty  { background: linear-gradient(135deg, #FFE4EC, #F7D6DC); }
+  .cat-health  { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .cat-baby    { background: linear-gradient(135deg, #FFF9E6, #FDECC8); }
+  .cat-fashion { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+  .cat-school  { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .cat-gadget  { background: linear-gradient(135deg, #F3F3F3, #E0E0E0); }
+  .cat-footwear{ background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+
+  .prod-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--rose); color: #fff;
+    font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 12px; z-index: 2;
+  }
+  .prod-badge.trending { background: linear-gradient(90deg, #ff6b00, #E8496A); }
+  .prod-badge.new { background: linear-gradient(90deg, #00b894, #00cec9); }
+  .prod-badge.bestseller { background: linear-gradient(90deg, var(--gold), #c4902e); color: var(--deep); }
+
+  .prod-info { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+  .prod-brand { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; color: var(--rose); margin-bottom: 4px; }
+  .prod-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--deep); line-height: 1.3; }
+  .prod-desc { font-size: .82rem; color: var(--muted); margin: 8px 0 14px; line-height: 1.5; flex: 1; }
+  .prod-stars { color: var(--gold); font-size: .88rem; margin-bottom: 10px; }
+  .prod-cta {
+    display: block; text-align: center; text-decoration: none;
+    background: linear-gradient(135deg, var(--rose), var(--mocha));
+    color: var(--white); font-weight: 800; font-size: .88rem;
+    padding: 11px 16px; border-radius: 12px;
+    transition: opacity .2s, transform .15s;
+    border: none; cursor: pointer; width: 100%;
+  }
+  .prod-cta:hover { opacity: .9; transform: scale(1.02); }
+
+  /* ── WHY CATT ── */
+  .why-section { background: linear-gradient(135deg, var(--deep) 0%, #5a2810 100%); padding: 80px 24px; }
+  .why-inner { max-width: 1000px; margin: 0 auto; }
+  .why-inner .sec-eyebrow { color: var(--peach); }
+  .why-inner .sec-title { color: var(--white); }
+  .why-inner .sec-title em { color: var(--gold); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 48px; }
+  .why-card {
+    background: rgba(255,255,255,.07); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius);
+    padding: 28px 24px; text-align: center;
+    transition: background .2s;
+  }
+  .why-card:hover { background: rgba(255,255,255,.12); }
+  .why-icon { font-size: 2.8rem; margin-bottom: 14px; }
+  .why-card h3 { color: var(--gold); font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+  .why-card p { color: rgba(255,255,255,.75); font-size: .88rem; line-height: 1.6; }
+
+  /* ── TIKTOK SECTION ── */
+  .tiktok-section {
+    background: linear-gradient(135deg, #010101 0%, #2d1240 50%, #ff0050 100%);
+    padding: 80px 24px; text-align: center;
+  }
+  .tiktok-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; font-weight: 900;
+    margin-bottom: 16px;
+  }
+  .tiktok-section h2 span { color: #fe2c55; }
+  .tiktok-section p { color: rgba(255,255,255,.8); max-width: 520px; margin: 0 auto 32px; font-size: 1rem; line-height: 1.7; }
+  .tiktok-handle {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.25);
+    border-radius: 40px; padding: 12px 28px;
+    color: #fff; font-size: 1.15rem; font-weight: 800; margin-bottom: 28px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .tiktok-handle:hover { background: rgba(255,255,255,.18); }
+  .tiktok-handle svg { width: 24px; height: 24px; fill: #fe2c55; }
+  .share-steps {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    max-width: 700px; margin: 0 auto 36px;
+  }
+  .share-step {
+    background: rgba(255,255,255,.08); border-radius: 14px;
+    padding: 16px 20px; flex: 1; min-width: 160px;
+    color: rgba(255,255,255,.9); font-size: .88rem;
+  }
+  .share-step strong { color: var(--gold); display: block; font-size: 1.3rem; margin-bottom: 6px; }
+  .big-tiktok-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, #fe2c55, #010101);
+    color: #fff; font-size: 1.1rem; font-weight: 800;
+    padding: 16px 36px; border-radius: 36px; text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 6px 28px rgba(254,44,85,.5);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .big-tiktok-btn:hover { transform: scale(1.05); box-shadow: 0 10px 40px rgba(254,44,85,.6); }
+
+  /* ── TESTIMONIALS ── */
+  .testi-section { background: var(--blush); padding: 72px 24px; }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px; max-width: 1000px; margin: 48px auto 0; }
+  .testi-card {
+    background: var(--white); border-radius: var(--radius);
+    padding: 24px 22px; box-shadow: 0 4px 20px rgba(232,73,106,.1);
+  }
+  .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 10px; }
+  .testi-text { font-size: .92rem; color: var(--text); line-height: 1.65; margin-bottom: 16px; font-style: italic; }
+  .testi-user { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 800; font-size: 1rem;
+  }
+  .testi-name { font-weight: 800; font-size: .9rem; color: var(--deep); }
+  .testi-loc { font-size: .78rem; color: var(--muted); }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--rose) 0%, #c4902e 100%);
+    padding: 64px 24px; text-align: center;
+  }
+  .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; font-weight: 900; }
+  .cta-banner p { color: rgba(255,255,255,.88); margin: 14px 0 30px; font-size: 1rem; }
+  .btn-white {
+    background: #fff; color: var(--rose); font-weight: 800; font-size: 1rem;
+    padding: 14px 36px; border-radius: 32px; border: none; cursor: pointer; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,.15);
+    transition: transform .15s;
+  }
+  .btn-white:hover { transform: scale(1.04); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep); color: rgba(255,255,255,.7);
+    padding: 48px 24px 28px; text-align: center;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
+  .footer-tagline { font-size: .9rem; margin-bottom: 24px; }
+  .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 16px; }
+
+  /* ── SCROLL-TOP ── */
+  .scroll-top {
+    position: fixed; bottom: 24px; right: 24px; z-index: 200;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--mocha));
+    color: #fff; border: none; cursor: pointer; font-size: 1.3rem;
+    box-shadow: 0 4px 16px rgba(232,73,106,.4);
+    transition: opacity .2s, transform .2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .scroll-top:hover { transform: scale(1.1); }
+
+  /* ── POPUP ── */
+  .popup-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.55);
+    z-index: 999; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .popup-overlay.show { opacity: 1; pointer-events: all; }
+  .popup {
+    background: var(--white); border-radius: 24px;
+    max-width: 440px; width: 90%; padding: 40px 36px; text-align: center;
+    position: relative; transform: scale(.9); transition: transform .3s;
+    box-shadow: 0 24px 80px rgba(0,0,0,.3);
+  }
+  .popup-overlay.show .popup { transform: scale(1); }
+  .popup-close {
+    position: absolute; top: 14px; right: 18px;
+    background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted);
+  }
+  .popup h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--deep); margin: 14px 0 10px; }
+  .popup p { color: var(--muted); font-size: .92rem; margin-bottom: 22px; line-height: 1.6; }
+  .popup-icon { font-size: 3rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp   { from { opacity:0; transform:translateY(22px);  } to { opacity:1; transform:translateY(0); } }
+  @keyframes float    { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-18px) scale(1.2); } }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    nav { display: none; }
+    .logo span { display: none; }
+    .trust-bar { gap: 20px; font-size: .78rem; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .prod-img { height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-icon">🎁</div>
+    <h2>Welcome to CATT Store!</h2>
+    <p>Discover beauty, health, fashion & more — trusted by thousands of happy buyers! Follow our TikTok for exclusive deals & live reviews.</p>
+    <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank" class="btn-primary" style="display:inline-block;margin-bottom:12px;">Follow @joana.pagdonsolan</a>
+    <br>
+    <button onclick="closePopup()" style="background:none;border:none;color:var(--muted);font-size:.88rem;cursor:pointer;margin-top:8px;">Continue Shopping →</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">CATT<span>STORE</span></div>
+  <nav>
+    <a href="#beauty">Beauty</a>
+    <a href="#health">Health</a>
+    <a href="#fashion">Fashion</a>
+    <a href="#baby">Baby</a>
+    <a href="#tiktok">TikTok</a>
+  </nav>
+  <a class="tiktok-btn" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.97a8.16 8.16 0 004.77 1.52V7.04a4.85 4.85 0 01-1-.35z"/></svg>
+    @joana.pagdonsolan
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="sparkle" style="left:15%;top:25%;"></div>
+  <div class="sparkle" style="left:75%;top:15%;"></div>
+  <div class="sparkle" style="left:85%;top:60%;"></div>
+  <div class="sparkle" style="left:25%;top:70%;"></div>
+  <div class="sparkle" style="left:50%;top:85%;"></div>
+
+  <div class="hero-badge">✦ CATT Store – Philippines' Trusted TikTok Shop ✦</div>
+  <h1>Glow, Shine &amp;<br><em>Feel Confident</em></h1>
+  <p>Beauty serums, brightening skincare, Korean fashion, vitamins, baby essentials &amp; more — all curated &amp; loved by real buyers.</p>
+  <div class="hero-ctas">
+    <a href="#products" class="btn-primary">🛍 Shop Now</a>
+    <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank" class="btn-secondary">📱 Watch on TikTok</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span>Trusted Affiliate Seller</span>
+  <span>100% Authentic Products</span>
+  <span>Real Buyer Reviews</span>
+  <span>TikTok Verified</span>
+  <span>Fast Philippine Delivery</span>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="sec-header">
+    <p class="sec-eyebrow">Browse by Category</p>
+    <h2 class="sec-title">Everything You <em>Love</em></h2>
+    <p class="sec-sub">Click any category to find your favorites</p>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-card" onclick="filterProducts('beauty')"><div class="cat-icon">✨</div><h3>Beauty & Skincare</h3><p>Serums, toners, moisturizers</p></div>
+    <div class="cat-card" onclick="filterProducts('health')"><div class="cat-icon">💊</div><h3>Health & Vitamins</h3><p>Collagen, glutathione, vitamins</p></div>
+    <div class="cat-card" onclick="filterProducts('baby')"><div class="cat-icon">🍼</div><h3>Baby & Kids</h3><p>Baby care essentials</p></div>
+    <div class="cat-card" onclick="filterProducts('fashion')"><div class="cat-icon">👜</div><h3>Korean Fashion</h3><p>Bags, shoes, watches</p></div>
+    <div class="cat-card" onclick="filterProducts('footwear')"><div class="cat-icon">👟</div><h3>Footwear</h3><p>Slippers & shoes for all</p></div>
+    <div class="cat-card" onclick="filterProducts('gadget')"><div class="cat-icon">🔋</div><h3>Gadgets & Tools</h3><p>Power banks, ring lights</p></div>
+    <div class="cat-card" onclick="filterProducts('school')"><div class="cat-icon">📚</div><h3>School Supplies</h3><p>Back-to-school essentials</p></div>
+    <div class="cat-card" onclick="filterProducts('all')"><div class="cat-icon">🌟</div><h3>View All</h3><p>See everything</p></div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-wrap" id="products">
+  <div class="products-inner">
+    <div class="sec-header">
+      <p class="sec-eyebrow">Affiliate Collection</p>
+      <h2 class="sec-title">Shop CATT's <em>Top Picks</em></h2>
+      <p class="sec-sub">Tap any product to order — linked directly to the seller</p>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+      <button class="filter-btn" onclick="filterProducts('beauty',this)" id="beauty">✨ Beauty</button>
+      <button class="filter-btn" onclick="filterProducts('health',this)" id="health">💊 Health</button>
+      <button class="filter-btn" onclick="filterProducts('baby',this)" id="baby">🍼 Baby</button>
+      <button class="filter-btn" onclick="filterProducts('fashion',this)" id="fashion">👜 Fashion</button>
+      <button class="filter-btn" onclick="filterProducts('footwear',this)" id="footwear">👟 Footwear</button>
+      <button class="filter-btn" onclick="filterProducts('gadget',this)" id="gadget">🔋 Gadgets</button>
+      <button class="filter-btn" onclick="filterProducts('school',this)" id="school">📚 School</button>
+    </div>
+    <div class="products-grid" id="productsGrid">
+
+      <!-- BEAUTY -->
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">✨</div><div class="prod-img-icon">🧴</div></div>
+        <span class="prod-badge bestseller">Bestseller</span>
+        <div class="prod-info">
+          <p class="prod-brand">Dermopublic</p>
+          <h3 class="prod-name">Brightening Toner</h3>
+          <p class="prod-desc">Visibly brightens and balances skin tone with every use. Gentle, effective, and loved by thousands.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">✨</div><div class="prod-img-icon">💧</div></div>
+        <span class="prod-badge bestseller">Bestseller</span>
+        <div class="prod-info">
+          <p class="prod-brand">Dermopublic</p>
+          <h3 class="prod-name">Brightening Serum</h3>
+          <p class="prod-desc">Potent serum that fades dark spots, evens skin tone, and delivers a healthy glow from the first week.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">🌸</div><div class="prod-img-icon">✨</div></div>
+        <span class="prod-badge new">New</span>
+        <div class="prod-info">
+          <p class="prod-brand">Milala</p>
+          <h3 class="prod-name">Brightening Serum</h3>
+          <p class="prod-desc">K-beauty inspired brightening serum. Lightweight, fast-absorbing, and packed with skin-loving actives.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">🌸</div><div class="prod-img-icon">🧖</div></div>
+        <span class="prod-badge new">New</span>
+        <div class="prod-info">
+          <p class="prod-brand">Milala</p>
+          <h3 class="prod-name">Brightening Moisturizer</h3>
+          <p class="prod-desc">Deep hydration meets radiance. This moisturizer locks in moisture while brightening dull skin all day.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">🍵</div><div class="prod-img-icon">🧴</div></div>
+        <span class="prod-badge">Popular</span>
+        <div class="prod-info">
+          <p class="prod-brand">Greeenika</p>
+          <h3 class="prod-name">Mela Toner</h3>
+          <p class="prod-desc">Specifically formulated to target melasma, dark patches, and uneven skin tone for a clearer complexion.</p>
+          <div class="prod-stars">★★★★☆</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">💎</div><div class="prod-img-icon">🌟</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Vita Glow</p>
+          <h3 class="prod-name">Melasma Treatment Set</h3>
+          <p class="prod-desc">Clinically-inspired formula for melasma sufferers. Reduces hyperpigmentation for visibly clearer, glowing skin.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">🫧</div><div class="prod-img-icon">🚿</div></div>
+        <span class="prod-badge">Popular</span>
+        <div class="prod-info">
+          <p class="prod-brand">CATT Picks</p>
+          <h3 class="prod-name">Whitening Body Wash</h3>
+          <p class="prod-desc">Luxurious lather with skin-brightening actives. Leaves your skin soft, smooth, and naturally radiant.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="beauty">
+        <div class="prod-img cat-beauty"><div class="prod-img-bg">🍌</div><div class="prod-img-icon">🌿</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Supreme</p>
+          <h3 class="prod-name">Banana Balm – Hands & Feet</h3>
+          <p class="prod-desc">The viral banana balm that deeply nourishes hands and feet for buttery-smooth, crack-free skin overnight.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- HEALTH -->
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">💊</div><div class="prod-img-icon">✨</div></div>
+        <span class="prod-badge bestseller">Bestseller</span>
+        <div class="prod-info">
+          <p class="prod-brand">Pentavite</p>
+          <h3 class="prod-name">Niacinamide Supplement</h3>
+          <p class="prod-desc">Brightens skin from within. Niacinamide helps reduce inflammation and fade dark spots with daily use.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">🌟</div><div class="prod-img-icon">💊</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Pentavite</p>
+          <h3 class="prod-name">Collagen + Glutathione Glow Combo</h3>
+          <p class="prod-desc">Double power: collagen rebuilds &amp; firms, glutathione brightens &amp; shields from sun damage. Best duo for glowing skin.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">⚡</div><div class="prod-img-icon">🌿</div></div>
+        <span class="prod-badge new">New</span>
+        <div class="prod-info">
+          <p class="prod-brand">Pentavite</p>
+          <h3 class="prod-name">Vitamin Booster Complex</h3>
+          <p class="prod-desc">Complete vitamin complex to support immunity, energy, and overall wellbeing. Feel the difference in weeks.</p>
+          <div class="prod-stars">★★★★☆</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">💚</div><div class="prod-img-icon">🧬</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Vteay</p>
+          <h3 class="prod-name">Magnesium Glycinate + Zinc</h3>
+          <p class="prod-desc">Supports deep sleep, muscle recovery, and immune health. Essential minerals in their most bioavailable form.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">✨</div><div class="prod-img-icon">💎</div></div>
+        <span class="prod-badge bestseller">Bestseller</span>
+        <div class="prod-info">
+          <p class="prod-brand">Vteay</p>
+          <h3 class="prod-name">Glutathione Whitening Capsules</h3>
+          <p class="prod-desc">Potent whitening from the inside out. Reduces melanin, fades blemishes, and promotes a bright, even complexion.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="health">
+        <div class="prod-img cat-health"><div class="prod-img-bg">🌿</div><div class="prod-img-icon">🌱</div></div>
+        <span class="prod-badge new">New</span>
+        <div class="prod-info">
+          <p class="prod-brand">Vteay</p>
+          <h3 class="prod-name">Ashwagandha + Collagen Combo</h3>
+          <p class="prod-desc">Two-in-one formula: ashwagandha calms stress, collagen firms skin. Wellness and beauty in one affordable capsule.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- BABY -->
+      <div class="product-card" data-cat="baby">
+        <div class="prod-img cat-baby"><div class="prod-img-bg">🍼</div><div class="prod-img-icon">👶</div></div>
+        <span class="prod-badge">Loved by Moms</span>
+        <div class="prod-info">
+          <p class="prod-brand">Baby Bench</p>
+          <h3 class="prod-name">Baby Powder – Bubble Gum Scent</h3>
+          <p class="prod-desc">Gentle, hypoallergenic baby powder with the sweetest bubble gum fragrance. Keeps baby fresh and soft all day.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="baby">
+        <div class="prod-img cat-baby"><div class="prod-img-bg">🌸</div><div class="prod-img-icon">🍭</div></div>
+        <span class="prod-badge">Loved by Moms</span>
+        <div class="prod-info">
+          <p class="prod-brand">Baby Bench</p>
+          <h3 class="prod-name">Baby Cologne – Bubble Gum</h3>
+          <p class="prod-desc">Irresistibly sweet and safe for baby's delicate skin. A light, long-lasting fragrance perfect for daily use.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- FASHION -->
+      <div class="product-card" data-cat="fashion">
+        <div class="prod-img cat-fashion"><div class="prod-img-bg">👜</div><div class="prod-img-icon">🛍</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Korean Fashion</p>
+          <h3 class="prod-name">Trendy Korean Bags for Women</h3>
+          <p class="prod-desc">Chic, minimalist Korean-style bags — from totes to crossbodies. Elevate any outfit instantly.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fashion">
+        <div class="prod-img cat-fashion"><div class="prod-img-bg">👠</div><div class="prod-img-icon">👡</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Korean Fashion</p>
+          <h3 class="prod-name">Trendy Korean Shoes for Women</h3>
+          <p class="prod-desc">From platform sneakers to chic flats — the hottest Korean shoe styles that look great on every occasion.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="fashion">
+        <div class="prod-img cat-fashion"><div class="prod-img-bg">⌚</div><div class="prod-img-icon">🕐</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">Men's Trends</p>
+          <h3 class="prod-name">Trending Watches for Men</h3>
+          <p class="prod-desc">Bold, stylish timepieces for the modern man. Premium look at an unbeatable affiliate price.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- FOOTWEAR -->
+      <div class="product-card" data-cat="footwear">
+        <div class="prod-img cat-footwear"><div class="prod-img-bg">👟</div><div class="prod-img-icon">🩴</div></div>
+        <span class="prod-badge">Family Fave</span>
+        <div class="prod-info">
+          <p class="prod-brand">CATT Picks</p>
+          <h3 class="prod-name">Slippers – Kids & Adults</h3>
+          <p class="prod-desc">Comfy, durable slippers for the whole family. Soft soles, fun designs, and perfect for everyday wear at home.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="footwear">
+        <div class="prod-img cat-footwear"><div class="prod-img-bg">👠</div><div class="prod-img-icon">👟</div></div>
+        <span class="prod-badge">Family Fave</span>
+        <div class="prod-info">
+          <p class="prod-brand">CATT Picks</p>
+          <h3 class="prod-name">Shoes – Kids & Adults</h3>
+          <p class="prod-desc">Stylish and sturdy shoes for kids and adults. Great value, quality construction, and designs everyone loves.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- GADGETS -->
+      <div class="product-card" data-cat="gadget">
+        <div class="prod-img cat-gadget"><div class="prod-img-bg">🔋</div><div class="prod-img-icon">⚡</div></div>
+        <span class="prod-badge">Must-Have</span>
+        <div class="prod-info">
+          <p class="prod-brand">Orashare</p>
+          <h3 class="prod-name">Power Bank</h3>
+          <p class="prod-desc">Never run out of battery again. High-capacity, fast-charging power bank — perfect for students &amp; commuters.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="gadget">
+        <div class="prod-img cat-gadget"><div class="prod-img-bg">📸</div><div class="prod-img-icon">💡</div></div>
+        <span class="prod-badge trending">Trending</span>
+        <div class="prod-info">
+          <p class="prod-brand">TTNW</p>
+          <h3 class="prod-name">Fill Light Tripod + Phone Holder</h3>
+          <p class="prod-desc">Your content-creation starter kit. Built-in ring light, adjustable tripod &amp; phone holder — perfect for TikTok videos.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="gadget">
+        <div class="prod-img cat-gadget"><div class="prod-img-bg">🛍</div><div class="prod-img-icon">🌟</div></div>
+        <span class="prod-badge new">New</span>
+        <div class="prod-info">
+          <p class="prod-brand">Joybean.ph</p>
+          <h3 class="prod-name">Joybean Featured Products</h3>
+          <p class="prod-desc">Handpicked must-haves from Joybean.ph — quality lifestyle &amp; everyday essentials you'll want to buy immediately.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+      <!-- SCHOOL -->
+      <div class="product-card" data-cat="school">
+        <div class="prod-img cat-school"><div class="prod-img-bg">📚</div><div class="prod-img-icon">✏️</div></div>
+        <span class="prod-badge">Back to School</span>
+        <div class="prod-info">
+          <p class="prod-brand">CATT Picks</p>
+          <h3 class="prod-name">School Supplies Bundle</h3>
+          <p class="prod-desc">Everything students need — notebooks, pens, organizers &amp; more. Quality supplies at affordable prices.</p>
+          <div class="prod-stars">★★★★★</div>
+          <a class="prod-cta" href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">🛒 Buy Now via TikTok</a>
+        </div>
+      </div>
+
+    </div><!-- /products-grid -->
+  </div>
+</section>
+
+<!-- WHY CATT -->
+<section class="why-section" id="about">
+  <div class="why-inner">
+    <div class="sec-header">
+      <p class="sec-eyebrow">Why Shop CATT?</p>
+      <h2 class="sec-title">Your Trust Is Our <em>Treasure</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">✅</div><h3>100% Authentic</h3><p>Every product is personally tested and verified. You get exactly what you see — no fakes, no surprises.</p></div>
+      <div class="why-card"><div class="why-icon">📱</div><h3>TikTok Live Reviews</h3><p>Watch real product demos and honest reviews live on @joana.pagdonsolan before you buy.</p></div>
+      <div class="why-card"><div class="why-icon">💰</div><h3>Best Affiliate Prices</h3><p>Direct affiliate links mean you get the best available prices — no markups, no hidden fees.</p></div>
+      <div class="why-card"><div class="why-icon">🚀</div><h3>Fast PH Delivery</h3><p>Orders fulfilled by trusted Philippine sellers with fast, reliable nationwide delivery.</p></div>
+      <div class="why-card"><div class="why-icon">💬</div><h3>Real Community</h3><p>Join thousands of happy buyers. Drop your reviews, ask questions, share your glow-ups with us!</p></div>
+      <div class="why-card"><div class="why-icon">🎁</div><h3>Exclusive Deals</h3><p>Follow on TikTok for flash sales, bundle discounts, and follower-only promo codes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIKTOK SECTION -->
+<section class="tiktok-section" id="tiktok">
+  <p style="font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px;">Connect With CATT</p>
+  <h2>Shop Live on <span>TikTok</span></h2>
+  <p>Follow my TikTok for live product demos, honest reviews, exclusive deals, and first looks at new arrivals. Share with your friends and family!</p>
+
+  <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank" class="tiktok-handle">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.97a8.16 8.16 0 004.77 1.52V7.04a4.85 4.85 0 01-1-.35z"/></svg>
+    @joana.pagdonsolan
+  </a>
+
+  <div class="share-steps">
+    <div class="share-step"><strong>1</strong>Open TikTok app and search for my handle</div>
+    <div class="share-step"><strong>2</strong>Follow &amp; turn on notifications for live alerts</div>
+    <div class="share-step"><strong>3</strong>Shop directly from my live or TikTok Shop links</div>
+    <div class="share-step"><strong>4</strong>Share with friends &amp; earn them great deals too!</div>
+  </div>
+
+  <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank" class="big-tiktok-btn">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;fill:white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.97a8.16 8.16 0 004.77 1.52V7.04a4.85 4.85 0 01-1-.35z"/></svg>
+    Follow & Shop on TikTok Now
+  </a>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div style="max-width:1000px;margin:0 auto;padding:0 24px;">
+    <div class="sec-header">
+      <p class="sec-eyebrow">Happy Buyers</p>
+      <h2 class="sec-title">What Our <em>Customers Say</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I ordered the Dermopublic serum after seeing Joana's TikTok review. After 2 weeks my skin is noticeably brighter! Super worth it!"</p>
+        <div class="testi-user"><div class="testi-avatar">M</div><div><div class="testi-name">Marie C.</div><div class="testi-loc">Manila, PH</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The glutathione + collagen combo from Pentavite is AMAZING. My skin glow is so different now. Lagi na akong mag-o-order dito!"</p>
+        <div class="testi-user"><div class="testi-avatar">A</div><div><div class="testi-name">Angel R.</div><div class="testi-loc">Quezon City, PH</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The Korean bags are so trendy and affordable! I bought 3 already. CATT Store never disappoints. 100% legit seller!"</p>
+        <div class="testi-user"><div class="testi-avatar">J</div><div><div class="testi-name">Janine T.</div><div class="testi-loc">Cebu, PH</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Supreme banana balm for feet — I was skeptical pero wow! My feet are super smooth na! I gifted some to my mom too."</p>
+        <div class="testi-user"><div class="testi-avatar">R</div><div><div class="testi-name">Rosie M.</div><div class="testi-loc">Davao, PH</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>Ready to Glow Up? 🌟</h2>
+  <p>Shop CATT's full collection, follow on TikTok, and join thousands of satisfied buyers across the Philippines.</p>
+  <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank" class="btn-white">Follow @joana.pagdonsolan on TikTok ✨</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">CATT</div>
+  <p class="footer-tagline">Your Trusted TikTok Affiliate Store · Philippines</p>
+  <div class="footer-links">
+    <a href="#categories">Categories</a>
+    <a href="#products">All Products</a>
+    <a href="#about">About CATT</a>
+    <a href="#tiktok">TikTok</a>
+    <a href="https://www.tiktok.com/@joana.pagdonsolan" target="_blank">@joana.pagdonsolan</a>
+  </div>
+  <p style="color:var(--gold);font-weight:700;font-size:.9rem;margin-bottom:8px;">📱 TikTok: @joana.pagdonsolan</p>
+  <p class="footer-copy">© 2025 CATT Store by Joana Pagdonsolan. All affiliate links lead to official product sellers. Results may vary.</p>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Popup
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.getElementById('popup').classList.add('show');
+  }, 1200);
+});
+function closePopup() {
+  document.getElementById('popup').classList.remove('show');
+}
+document.getElementById('popup').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('popup')) closePopup();
+});
+
+// Filter
+function filterProducts(cat, btn) {
+  const cards = document.querySelectorAll('.product-card');
+  cards.forEach(c => {
+    if (cat === 'all' || c.dataset.cat === cat) {
+      c.classList.remove('hidden');
+    } else {
+      c.classList.add('hidden');
+    }
+  });
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  // scroll
+  document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Scroll top visibility
+const st = document.querySelector('.scroll-top');
+window.addEventListener('scroll', () => {
+  st.style.opacity = window.scrollY > 400 ? '1' : '0';
+  st.style.pointerEvents = window.scrollY > 400 ? 'all' : 'none';
+});
+st.style.opacity = '0';
+
+// Subtle card scroll animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.product-card, .why-card, .testi-card').forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(24px)';
+  card.style.transition = 'opacity .5s ease, transform .5s ease, box-shadow .25s';
+  observer.observe(card);
+});
+</script>
+</body>
+</html>
